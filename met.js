@@ -2,7 +2,7 @@ const request = require('request')
 
 
 BDMet = function(search,callback){
-    const url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=' + title
+    const url = 'https://collectionapi.metmuseum.org/public/collection/v1/search?q=' + search
 
    // console.log(url)
 
