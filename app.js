@@ -1,6 +1,6 @@
 const path = require('path')
 const express = require('express')
-const met = require('./met.js')
+const met = require('./met')
 
 const app = express()
 
