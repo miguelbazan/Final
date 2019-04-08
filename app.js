@@ -8,8 +8,6 @@ const port = process.env.PORT || 3000
 
 const publicDir = path.join(__dirname,'public')
 
-const title = 'sunflowers'
-
 app.use(express.static(publicDir))
 
 app.get('./extra', function(req,res){
