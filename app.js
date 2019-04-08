@@ -19,7 +19,7 @@ app.get('./extra', function(req,res){
     })
 })
 
-app.get('/students/A01281010', function(req,res){
+app.get('/studentsA01281010', function(req,res){
 
     var id = req.params.id;
     console.log(id)
@@ -40,22 +40,21 @@ app.get('/met', function(req,res){
             error: 'No se encontro'
         })
     }
-    met.BDMet(req,query.search, function(error,response){
+    met.BDMet(req,query.search, function(error,data){
         if (error){
-            return res.send({
-                error: error
+            return res.send(data)
+        } else {
+            met.searchID(data, function(error,response){
+                if(error){
+                    return res.send(response)
+                } else{
+                    response["searchTerm"] = req.query.search
+                    res.send(response)
+                }
             })
         }
-
-        const mets = response
-
-        res.send({
-            total: mets.total,
-            objectIds: mets.objectIds
-        })
     })
 })
-
 
 
 app.get('*', function(req,res){
