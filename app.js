@@ -8,11 +8,18 @@ const port = process.env.PORT || 3000
 
 const publicDir = path.join(__dirname,'public')
 
-const title = sunflowers
+const title = 'sunflowers'
 
 app.use(express.static(publicDir))
 
-app.get('/students', function(req,res){
+app.get('./extra', function(req,res){
+    res.send({
+        "Dia": "Abril 8",
+        "Mensaje": "Hizo calor "
+    })
+})
+
+app.get('/students/A01281010', function(req,res){
 
     var id = req.params.id;
     console.log(id)
@@ -47,12 +54,6 @@ app.get('/met', function(req,res){
             objectIds: mets.objectIds
         })
     })
-    
-
-
-
-
-
 })
 
 
